@@ -169,9 +169,9 @@
                 <div class="absolute inset-0 bg-primary/80 backdrop-brightness-75"></div>
             </div>
             <div
-                class="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 text-center w-full pt-32 pb-12 lg:pt-48 md:pb-0">
+                class="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 text-center w-full pt-16 pb-12 lg:pt-28 md:pb-0">
                 <img src="logos/logos empresas/britwhite.png" alt="BritCham Logo"
-                    class="h-[83px] md:h-[250px] lg:h-[188px] mx-auto mb-6 md:mb-10 opacity-90" />
+                    class="h-[83px] md:h-[250px] lg:h-[188px] mx-auto mb-4 md:mb-6 opacity-90" />
                 <div
                     class="inline-block bg-lightblue text-white px-6 py-2 md:px-10 md:py-4 mb-8 border-2 border-primary">
                     <span
@@ -930,13 +930,13 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             gsap.utils.toArray('.agenda-card').forEach((card) => {
-                gsap.fromTo(card, 
-                    { 
-                        opacity: 0, 
-                        x: 100 
-                    }, 
-                    { 
-                        opacity: 1, 
+                gsap.fromTo(card,
+                    {
+                        opacity: 0,
+                        x: 100
+                    },
+                    {
+                        opacity: 1,
                         x: 0,
                         duration: 0.8,
                         ease: "power3.out",
