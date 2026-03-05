@@ -173,23 +173,24 @@
             </div>
             <div
                 class="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 text-center w-full pt-16 pb-12 lg:pt-28 md:pb-0">
-                <img src="logos/logos empresas/britwhite.png" alt="BritCham Logo"
+                <img id="hero-logo" src="logos/logos empresas/britwhite.png" alt="BritCham Logo"
                     class="h-[83px] md:h-[250px] lg:h-[188px] mx-auto mb-4 md:mb-6 opacity-90" />
-                <div
+                <div id="hero-mision"
                     class="inline-block bg-lightblue text-white px-6 py-2 md:px-10 md:py-4 mb-8 border-2 border-primary">
                     <span
                         class="text-xs md:text-sm font-black uppercase tracking-[0.2em] md:tracking-[0.3em] inline-block scale-110">Misión
                         Comercial
                         2026</span>
                 </div>
-                <h1 class="brutalist-text text-[15vw] lg:text-[10rem] text-white mb-6 drop-shadow-2xl leading-none">
+                <h1 id="hero-title"
+                    class="brutalist-text text-[15vw] lg:text-[10rem] text-white mb-6 drop-shadow-2xl leading-none">
                     London<br />Tech Week
                 </h1>
-                <div class="flex items-center justify-center gap-4 md:gap-8 mb-8 md:mb-12">
+                <div id="hero-year-container" class="flex items-center justify-center gap-4 md:gap-8 mb-8 md:mb-12">
                     <span class="brutalist-text text-6xl md:text-[80px] lg:text-[100px] text-white">2026</span>
                     <div class="h-1 w-24 md:w-48 bg-lightblue"></div>
                 </div>
-                <div
+                <div id="hero-desc-container"
                     class="flex flex-col lg:flex-row items-center justify-center gap-8 md:gap-16 text-white mb-12 md:mb-16">
                     <div class="text-left border-l-4 md:border-l-8 border-lightblue pl-6 md:pl-8 max-w-2xl">
                         <p class="text-lg md:text-2xl font-[900] leading-tight mb-4">
@@ -1010,6 +1011,23 @@
         });
 
         document.addEventListener('DOMContentLoaded', () => {
+        // Hero Banner Evaporation Animation
+        const heroTimeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: 'section.relative.min-h-screen',
+                start: 'top top',
+                end: 'bottom 20%',
+                scrub: true
+            }
+        });
+
+        heroTimeline
+            .to('#hero-logo', { opacity: 0, y: -100, duration: 1 }, 0)
+            .to('#hero-mision', { opacity: 0, scale: 0.8, y: -50, duration: 0.8 }, 0.1)
+            .to('#hero-title', { opacity: 0, y: -150, duration: 1.2 }, 0)
+            .to('#hero-year-container', { opacity: 0, y: -80, duration: 1 }, 0.2)
+            .to('#hero-desc-container', { opacity: 0, y: -60, duration: 1 }, 0.3)
+            .to('#hero-btn', { opacity: 0, scale: 0.7, y: -40, duration: 0.8 }, 0.4);
             gsap.utils.toArray('.agenda-card').forEach((card) => {
                 gsap.fromTo(card,
                     {
